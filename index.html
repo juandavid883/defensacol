@@ -42,6 +42,12 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
         body { top: 0 !important; }
+
+        /* New: Ensure logo container keeps the full logo visible on the left */
+        .site-logo img {
+            max-width: 220px; /* adjust to fit the header */
+            height: auto;
+        }
     </style>
 
     <!-- Google Translate Script -->
@@ -57,9 +63,10 @@
     <nav class="bg-tactical-900 text-white shadow-lg sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center">
+                <div class="flex-shrink-0 flex items-center site-logo">
                     <a href="#" onclick="showHome(event)" class="hover:opacity-90 transition-opacity flex items-center" title="Volver a la página principal">
-                        <img src="4936228277647510501_4.jpg" alt="defensacol Logo" class="h-14 sm:h-16 w-auto rounded object-contain shadow-sm bg-black p-1" onerror="this.src='https://placehold.co/180x50/1a1f24/d4af37?text=defensacol'">
+                        <!-- Updated to use the full logo image; put the image file at assets/defensacol-full.png in the repo -->
+                        <img src="assets/defensacol-full.png" alt="defensacol Logo" class="h-14 sm:h-16 w-auto rounded object-contain shadow-sm bg-black p-1" onerror="this.src='https://placehold.co/240x60?text=DEFENSACOL'">
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
@@ -115,7 +122,7 @@
                 <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                     Despejamos la confusión legal. Conoce la verdad sobre la Ley 2197, los vacíos institucionales y las decisiones de los tribunales frente al porte de dispositivos menos letales.
                 </p>
-                <a href="#comunidad-juridica" onclick="scrollToSection(event, 'comunidad-juridica')" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-tactical-900 bg-tactical-gold hover:bg-yellow-500 transition duration-150 ease-in-out gap-2 shadow-lg">
+                <a href="#comunidad-juridica" onclick="scrollToSection(event, 'comunidad-juridica')" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md bg-tactical-gold text-tactical-900 hover:bg-yellow-500 transition-colors shadow">
                     Leer Normativa Actual <i class="fa-solid fa-arrow-down"></i>
                 </a>
             </div>
@@ -138,7 +145,7 @@
                                 <h3 class="text-xl font-bold">1. La Ley 2197 y el Contexto Inicial</h3>
                             </div>
                             <p class="text-gray-600 line-clamp-3">
-                                La Ley de Seguridad Ciudadana (2197 de 2022) buscó regular por primera vez las armas menos letales. Sin embargo, su implementación generó más dudas que certezas en la ciudadanía...
+                                La Ley de Seguridad Ciudadana (2197 de 2022) buscó regular por primera vez las armas menos letales. Sin embargo, su implementación generó más dudas que certezas en [...]
                             </p>
                             <div class="mt-4 text-sm font-semibold text-tactical-gold flex items-center gap-1">
                                 Leer análisis completo <i class="fa-solid fa-chevron-right text-xs"></i>
@@ -154,7 +161,7 @@
                                 <h3 class="text-xl font-bold">2. El Vacío Institucional (Sentencia C-014)</h3>
                             </div>
                             <p class="text-gray-600 line-clamp-3">
-                                La Corte Constitucional eliminó los apartados que permitían a civiles adquirir estas armas bajo Indumil. Hoy existe un vacío: no hay forma administrativa de obtener nuevos permisos...
+                                La Corte Constitucional eliminó los apartados que permitían a civiles adquirir estas armas bajo Indumil. Hoy existe un vacío: no hay forma administrativa de obtener [...]
                             </p>
                             <div class="mt-4 text-sm font-semibold text-tactical-gold flex items-center gap-1">
                                 Leer análisis completo <i class="fa-solid fa-chevron-right text-xs"></i>
@@ -170,7 +177,7 @@
                                 <h3 class="text-xl font-bold">3. ¿Es delito portarlas? La postura de los Jueces</h3>
                             </div>
                             <p class="text-gray-600 line-clamp-3">
-                                ¿Aplica el artículo 365 del Código Penal? Fiscalías y Tribunales Superiores están absolviendo capturas, pues un arma traumática estándar no funciona por combustión...
+                                ¿Aplica el artículo 365 del Código Penal? Fiscalías y Tribunales Superiores están absolviendo capturas, pues un arma traumática estándar no funciona por combusti[...]
                             </p>
                             <div class="mt-4 text-sm font-semibold text-tactical-gold flex items-center gap-1">
                                 Leer análisis completo <i class="fa-solid fa-chevron-right text-xs"></i>
@@ -186,7 +193,7 @@
                                 <h3 class="text-xl font-bold">4. La Contradicción y Conclusión Legal</h3>
                             </div>
                             <p class="text-gray-600 line-clamp-3">
-                                Estamos en un limbo. La Policía puede incautarlas administrativamente, pero el sistema penal se niega a judicializar por porte ilegal. Conoce cómo protegerte legalmente...
+                                Estamos en un limbo. La Policía puede incautarlas administrativamente, pero el sistema penal se niega a judicializar por porte ilegal. Conoce cómo protegerte legalmen[...]
                             </p>
                             <div class="mt-4 text-sm font-semibold text-tactical-gold flex items-center gap-1">
                                 Leer análisis completo <i class="fa-solid fa-chevron-right text-xs"></i>
@@ -206,7 +213,7 @@
                             <div>
                                 <h3 class="text-2xl font-bold mb-4 text-tactical-gold">Adquisición Controlada</h3>
                                 <p class="mb-6 text-gray-300 text-sm leading-relaxed">
-                                    Operamos bajo estricto cumplimiento de la ley comercial. Proveemos equipos menos letales (traumáticos) deportivos o de <strong>disuasión únicamente con documentación legal (manifiesto de aduana y factura).</strong>
+                                    Operamos bajo estricto cumplimiento de la ley comercial. Proveemos equipos menos letales (traumáticos) deportivos o de <strong>disuasión únicamente con documenta[...]
                                 </p>
                                 <div class="bg-red-900/50 border-l-4 border-red-500 p-4 mb-6 rounded">
                                     <p class="text-sm font-semibold text-red-200">
@@ -234,12 +241,12 @@
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">Cédula de Ciudadanía</label>
-                                        <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tactical-gold focus:border-tactical-gold" placeholder="Para verificación">
+                                        <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tactical-gold focus:border-tactical-gold" placeholder="Para ver[...]
                                     </div>
                                 </div>
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
-                                    <input type="email" id="userEmail" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tactical-gold focus:border-tactical-gold" placeholder="tucorreo@dominio.com">
+                                    <input type="email" id="userEmail" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tactical-gold focus:border-tactical-gold" placehold[...]
                                 </div>
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Propósito de Adquisición</label>
@@ -263,7 +270,7 @@
                                     Solicitar Revisión y Catálogo
                                 </button>
                                 <p id="formMessage" class="hidden mt-4 text-center text-sm font-bold text-green-700 bg-green-100 p-3 rounded border border-green-200">
-                                    ¡Solicitud recibida exitosamente! Hemos enviado los siguientes pasos y el catálogo al correo electrónico <span id="displayEmail">coldefensa@gmail.com</span> o a tu dirección registrada.
+                                    ¡Solicitud recibida exitosamente! Hemos enviado los siguientes pasos y el catálogo al correo electrónico <span id="displayEmail">coldefensa@gmail.com</span> o a [...]
                                 </p>
                             </form>
                         </div>
@@ -299,7 +306,7 @@
                     <p class="text-xl text-gray-500 font-light mb-8">Un análisis sobre el origen de la regulación de dispositivos menos letales en Colombia.</p>
                     <p>Para entender dónde estamos, debemos remitirnos a la <strong>Ley 2197 de 2022</strong>, conocida como la Ley de Seguridad Ciudadana.</p>
                     <p>Esta norma surgió con el objeto de fortalecer la seguridad y, por primera vez, regular de forma integral las armas y dispositivos menos letales en el territorio colombiano.</p>
-                    <p>La intención original era clasificar, registrar y controlar estos dispositivos que, por su apariencia y función, estaban siendo utilizados en actos delictivos. Sin embargo, el texto de la ley y sus decretos reglamentarios posteriores generaron un entramado burocrático complejo que terminó chocando con otras instancias jurídicas del país.</p>
+                    <p>La intención original era clasificar, registrar y controlar estos dispositivos que, por su apariencia y función, estaban siendo utilizados en actos delictivos. Sin embargo, el[...] 
                 </div>
             </div>
         </article>
@@ -318,8 +325,8 @@
                     <h1 class="text-3xl md:text-5xl font-extrabold relative z-10 leading-tight">2. La Regulación y el Vacío de Permisos</h1>
                 </div>
                 <div class="p-8 md:p-12 text-gray-700 space-y-6 text-lg leading-relaxed text-justify">
-                    <p>Un punto clave que a menudo se ignora es que, tras la expedición de esta ley, la <strong>Corte Constitucional</strong>, mediante la <strong>Sentencia C-014 de 2023</strong>, declaró inconstitucionales varios apartados que permitían a civiles adquirir y portar estas armas bajo reglamentación de Indumil.</p>
-                    <p><strong>¿Qué significa esto en la práctica?</strong> Según los análisis jurídicos recientes, actualmente no existe un marco institucional que permita la expedición de nuevos permisos para el porte de armas traumáticas por parte de civiles, ya que las normas que lo facilitaban fueron expulsadas del ordenamiento jurídico.</p>
+                    <p>Un punto clave que a menudo se ignora es que, tras la expedición de esta ley, la <strong>Corte Constitucional</strong>, mediante la <strong>Sentencia C-014 de 2023</strong>, de[...]</p>
+                    <p><strong>¿Qué significa esto en la práctica?</strong> Según los análisis jurídicos recientes, actualmente no existe un marco institucional que permita la expedición de nue[...]</p>
                     <p>Estamos, por tanto, en un escenario donde la tenencia y el porte carecen de un respaldo administrativo claro para el ciudadano común, creando un limbo normativo.</p>
                 </div>
             </div>
@@ -339,11 +346,11 @@
                     <h1 class="text-3xl md:text-5xl font-extrabold relative z-10 leading-tight">3. ¿Es un Delito Portarlas? El Debate Jurídico</h1>
                 </div>
                 <div class="p-8 md:p-12 text-gray-700 space-y-6 text-lg leading-relaxed text-justify">
-                    <p>Aquí es donde la conversación se vuelve técnica. ¿El porte de una arma traumática constituye el delito de <em>'Fabricación, tráfico y porte de armas de fuego'</em> (Art. 365 del Código Penal)?</p>
+                    <p>Aquí es donde la conversación se vuelve técnica. ¿El porte de una arma traumática constituye el delito de <em>'Fabricación, tráfico y porte de armas de fuego'</em> (Art. [...]</p>
                     <div class="space-y-6 mt-8">
                         <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-sm">
                             <h4 class="font-bold text-gray-900 text-xl mb-3 flex items-center gap-2"><i class="fa-solid fa-building-columns text-yellow-600"></i> Postura de la Fiscalía</h4>
-                            <p>La Dirección de Asuntos Jurídicos ha señalado que para que un arma se considere 'de fuego' bajo el tipo penal, debe funcionar mediante la combustión de gases. Si no ha sido modificada, técnicamente no se adecúa al tipo penal.</p>
+                            <p>La Dirección de Asuntos Jurídicos ha señalado que para que un arma se considere 'de fuego' bajo el tipo penal, debe funcionar mediante la combustión de gases. Si no [...]
                         </div>
                         <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-sm">
                             <h4 class="font-bold text-gray-900 text-xl mb-3 flex items-center gap-2"><i class="fa-solid fa-scale-unbalanced text-yellow-600"></i> Tribunal Superior de Bogotá</h4>
@@ -372,14 +379,14 @@
                     <h1 class="text-3xl md:text-5xl font-extrabold relative z-10 leading-tight">4. Munición Modificada y Conclusión</h1>
                 </div>
                 <div class="p-8 md:p-12 text-gray-700 space-y-6 text-lg leading-relaxed text-justify">
-                    <p><strong>El caso de la munición modificada:</strong> En la Sentencia AC-458-23, un tribunal determinó que, incluso con munición alterada (ej. balines de plomo), el <em>principio de legalidad</em> impide condenar por un delito (porte de armas de fuego letales) que no describe exactamente la conducta de portar un arma catalogada por ley como 'menos letal'.</p>
+                    <p><strong>El caso de la munición modificada:</strong> En la Sentencia AC-458-23, un tribunal determinó que, incluso con munición alterada (ej. balines de plomo), el <em>princip[...]
                     
                     <div class="bg-tactical-900 p-8 md:p-10 rounded-2xl text-white mt-10 shadow-2xl relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-tactical-gold opacity-10 rounded-bl-full"></div>
                         <h4 class="font-extrabold text-tactical-gold text-2xl mb-6 flex items-center"><i class="fa-solid fa-scale-balanced mr-3 text-3xl"></i> ¿En qué quedamos?</h4>
-                        <p class="mb-6 text-lg">Existe una contradicción institucional evidente: la Ley 2197 busca restringirlas, la Corte eliminó las vías para legalizarlas, y los Jueces Penales absuelven a quienes las portan.</p>
+                        <p class="mb-6 text-lg">Existe una contradicción institucional evidente: la Ley 2197 busca restringirlas, la Corte eliminó las vías para legalizarlas, y los Jueces Penales a[...]</p>
                         <div class="bg-red-900/40 border-l-4 border-red-500 p-4 rounded-r">
-                            <p class="text-gray-200"><strong>Advertencia Importante:</strong> No es "legal" portarlas libremente en la calle. Pueden ser incautadas <em>administrativamente</em> por la Policía (Código de Convivencia), pero el sistema judicial ha enviado un mensaje claro: hoy por hoy, su porte estándar no conlleva cárcel bajo el Art. 365.</p>
+                            <p class="text-gray-200"><strong>Advertencia Importante:</strong> No es "legal" portarlas libremente en la calle. Pueden ser incautadas <em>administrativamente</em> por la [...]</p>
                         </div>
                     </div>
                 </div>
@@ -393,7 +400,7 @@
             <!-- Redes Sociales con sus colores respectivos -->
             <div class="flex justify-center space-x-8 mb-6">
                 <a href="#" class="hover:scale-110 transition-transform text-3xl" title="Instagram">
-                    <i class="fa-brands fa-instagram" style="background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    <i class="fa-brands fa-instagram" style="background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; color: transparent;"></i>
                 </a>
                 <a href="#" class="text-[#1877F2] hover:scale-110 transition-transform text-3xl" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                 <a href="#" class="text-white hover:scale-110 transition-transform text-3xl" style="text-shadow: 1.5px 1.5px 0 #00f2fe, -1.5px -1.5px 0 #fe0979;" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
