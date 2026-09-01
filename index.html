@@ -1,512 +1,361 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>defensacol - Tactical Gear & Legal Compliance</title>
-    
+    <title>DEFENSACOL - Táctica y Consultoría Legal</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
                     colors: {
-                        tactical: {
-                            900: '#1a1f24',
-                            800: '#2d3748',
-                            700: '#4a5568',
-                            accent: '#e2e8f0',
-                            gold: '#d4af37'
-                        }
+                        darkbg: '#0f172a',
+                        cardbg: '#1e293b',
+                        accentgold: '#facc15',
                     }
                 }
             }
         }
     </script>
-    <style>
-        html { scroll-behavior: smooth; }
-        .blog-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
-        body { top: 0 !important; }
-
-        .site-logo img {
-            max-width: 220px;
-            height: auto;
-        }
-    </style>
-
-    <!-- Google Translate Script -->
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Translate Script (Oculto) -->
+    <div id="google_translate_element" style="display:none;"></div>
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,fr,es', autoDisplay: false}, 'google_translate_element');
+            new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,fr,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
         }
     </script>
-</head>
-<body class="bg-gray-100 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
-
-    <nav class="bg-tactical-900 text-white shadow-lg sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center site-logo">
-                    <a href="#" onclick="showHome(event)" class="hover:opacity-90 transition-opacity flex items-center" title="Volver a la página principal">
-                        <img src="assets/defensacol-full.png" alt="defensacol Logo" class="h-14 sm:h-16 w-auto rounded object-contain shadow-sm bg-black p-1" onerror="this.src='https://placehold.co/240x60?text=DEFENSACOL'">
-                    </a>
-                </div>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#comunidad-juridica" class="hover:text-tactical-gold transition-colors font-medium" onclick="scrollToSection(event, 'comunidad-juridica')">Comunidad Jurídica</a>
-                    <a href="#adquisicion" class="bg-tactical-gold text-tactical-900 px-4 py-2 rounded-md font-semibold hover:bg-yellow-500 transition-colors shadow" onclick="scrollToSection(event, 'adquisicion')">Adquisición Legal</a>
-                    
-                    <!-- Language selector -->
-                    <div class="flex items-center gap-3 border-l border-gray-700 pl-6 ml-2">
-                        <button onclick="changeLanguage('es')" class="hover:scale-110 transition-transform focus:outline-none" title="Español">
-                            <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-7 h-5 object-cover rounded-sm shadow">
-                        </button>
-                        <button onclick="changeLanguage('en')" class="hover:scale-110 transition-transform focus:outline-none" title="English">
-                            <img src="https://flagcdn.com/w40/us.png" alt="English" class="w-7 h-5 object-cover rounded-sm shadow">
-                        </button>
-                        <button onclick="changeLanguage('fr')" class="hover:scale-110 transition-transform focus:outline-none" title="Français">
-                            <img src="https://flagcdn.com/w40/fr.png" alt="Français" class="w-7 h-5 object-cover rounded-sm shadow">
-                        </button>
-                    </div>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center gap-3">
-                    <div class="flex items-center gap-2">
-                        <button onclick="changeLanguage('es')" class="hover:scale-110 transition-transform" title="Español">
-                            <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 object-cover rounded-sm">
-                        </button>
-                        <button onclick="changeLanguage('en')" class="hover:scale-110 transition-transform" title="English">
-                            <img src="https://flagcdn.com/w40/us.png" alt="English" class="w-6 h-4 object-cover rounded-sm">
-                        </button>
-                        <button onclick="changeLanguage('fr')" class="hover:scale-110 transition-transform" title="Français">
-                            <img src="https://flagcdn.com/w40/fr.png" alt="Français" class="w-6 h-4 object-cover rounded-sm">
-                        </button>
-                    </div>
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-tactical-800 pb-4 px-4 border-t border-gray-700">
-            <a href="#comunidad-juridica" class="block py-3 text-white hover:text-tactical-gold font-medium border-b border-gray-700" onclick="scrollToSection(event, 'comunidad-juridica')">Comunidad Jurídica</a>
-            <a href="#adquisicion" class="block py-3 text-tactical-gold font-bold" onclick="scrollToSection(event, 'adquisicion')">Adquisición Legal</a>
-        </div>
-    </nav>
-
-    <div id="home-view">
-        <header class="bg-tactical-800 text-white py-20 px-4 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-            <div class="max-w-4xl mx-auto text-center relative z-10">
-                <h1 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-                    El Panorama Real de las <span class="text-tactical-gold">Armas Traumáticas</span> en Colombia
-                </h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                    Despejamos la confusión legal. Conoce la verdad sobre la Ley 2197, los vacíos institucionales y las decisiones de los tribunales frente al porte de dispositivos menos letales.
-                </p>
-                <a href="#comunidad-juridica" onclick="scrollToSection(event, 'comunidad-juridica')" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md bg-tactical-gold text-tactical-900 hover:bg-yellow-500 transition-colors shadow">
-                    Leer Normativa Actual <i class="fa-solid fa-arrow-down ml-2"></i>
-                </a>
-            </div>
-        </header>
-
-        <main class="flex-grow">
-            <!-- Comunidad Jurídica Section -->
-            <section id="comunidad-juridica" class="py-16 px-4 max-w-7xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-tactical-900 mb-4">Comunidad Jurídica</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Haz clic en cada tarjeta para profundizar en los aspectos legales y las contradicciones del sistema actual.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Tarjeta 1 -->
-                    <article class="blog-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer border border-gray-200" onclick="openArticle('article-1')">
-                        <div class="p-6">
-                            <div class="flex items-center gap-3 mb-4 text-tactical-700">
-                                <i class="fa-solid fa-book-open text-2xl text-tactical-gold"></i>
-                                <h3 class="text-xl font-bold">1. La Ley 2197 y el Contexto Inicial</h3>
-                            </div>
-                            <p class="text-gray-600 line-clamp-3">
-                                La Ley de Seguridad Ciudadana (2197 de 2022) buscó regular por primera vez las armas menos letales. Sin embargo, su implementación generó más dudas que certezas...
-                            </p>
-                            <div class="mt-4 text-sm font-semibold text-tactical-gold flex items-center gap-1">
-                                Leer análisis completo <i class="fa-solid fa-chevron-right text-xs"></i>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Tarjeta 2 -->
-                    <article class="blog-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer border border-gray-200" onclick="openArticle('article-2')">
-                        <div class="p-6">
-                            <div class="flex items-center gap-3 mb-4 text-tactical-700">
-                                <i class="fa-solid fa-gavel text-2xl text-tactical-gold"></i>
-                                <h3 class="text-xl font-bold">2. El Vacío Institucional (Sentencia C-014)</h3>
-                            </div>
-                            <p class="text-gray-600 line-clamp-3">
-                                La Corte Constitucional eliminó los apartados que permitían a civiles adquirir estas armas bajo Indumil. Hoy existe un vacío: no hay forma administrativa de obtener permisos...
-                            </p>
-                            <div class="mt-4 text-sm font-semibold text-tactical-gold flex items-center gap-1">
-                                Leer análisis completo <i class="fa-solid fa-chevron-right text-xs"></i>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Tarjeta 3 -->
-                    <article class="blog-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer border border-gray-200" onclick="openArticle('article-3')">
-                        <div class="p-6">
-                            <div class="flex items-center gap-3 mb-4 text-tactical-700">
-                                <i class="fa-solid fa-handcuffs text-2xl text-tactical-gold"></i>
-                                <h3 class="text-xl font-bold">3. ¿Es delito portarlas? La postura de los Jueces</h3>
-                            </div>
-                            <p class="text-gray-600 line-clamp-3">
-                                ¿Aplica el artículo 365 del Código Penal? Fiscalías y Tribunales Superiores están absolviendo capturas, pues un arma traumática estándar no funciona por combustión de gases letales...
-                            </p>
-                            <div class="mt-4 text-sm font-semibold text-tactical-gold flex items-center gap-1">
-                                Leer análisis completo <i class="fa-solid fa-chevron-right text-xs"></i>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Tarjeta 4 -->
-                    <article class="blog-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer border border-gray-200" onclick="openArticle('article-4')">
-                        <div class="p-6">
-                            <div class="flex items-center gap-3 mb-4 text-tactical-700">
-                                <i class="fa-solid fa-shield-halved text-2xl text-tactical-gold"></i>
-                                <h3 class="text-xl font-bold">4. La Contradicción y Conclusión Legal</h3>
-                            </div>
-                            <p class="text-gray-600 line-clamp-3">
-                                Estamos en un limbo. La Policía puede incautarlas administrativamente, pero el sistema penal se niega a judicializar por porte ilegal. Conoce cómo protegerte legalmente...
-                            </p>
-                            <div class="mt-4 text-sm font-semibold text-tactical-gold flex items-center gap-1">
-                                Leer análisis completo <i class="fa-solid fa-chevron-right text-xs"></i>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <!-- Adquisición Section -->
-            <section id="adquisicion" class="bg-tactical-900 py-16 relative">
-                <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                <div class="max-w-5xl mx-auto px-4 relative z-10">
-                    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden md:flex">
-                        <!-- Info Panel -->
-                        <div class="bg-tactical-800 text-white p-8 md:w-2/5 flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4 text-tactical-gold">Adquisición Controlada</h3>
-                                <p class="mb-6 text-gray-300 text-sm leading-relaxed">
-                                    Operamos bajo estricto cumplimiento de la ley comercial. Proveemos equipos menos letales (traumáticos) deportivos o de <strong>disuasión únicamente con documentación en regla</strong>.
-                                </p>
-                                <div class="bg-red-900/50 border-l-4 border-red-500 p-4 mb-6 rounded">
-                                    <p class="text-sm font-semibold text-red-200">
-                                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> DERECHO DE ADMISIÓN RESERVADO
-                                    </p>
-                                    <p class="text-xs mt-2 text-gray-300">
-                                        Nos reservamos el derecho de venta. Se requiere verificación de antecedentes y propósito lícito para la compra.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="text-sm text-gray-400 space-y-1">
-                                <p><i class="fa-solid fa-envelope mr-2"></i> coldefensa@gmail.com</p>
-                                <p><i class="fa-solid fa-shield mr-2"></i> Envíos nacionales seguros</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Contact Form -->
-                        <div class="p-8 md:w-3/5 bg-gray-50">
-                            <h3 class="text-xl font-bold text-tactical-900 mb-6">Solicitud de Asesoría y Catálogo</h3>
-                            <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
-                                        <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tactical-gold focus:border-tactical-gold">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Cédula de Ciudadanía</label>
-                                        <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tactical-gold focus:border-tactical-gold" placeholder="Número de cédula">
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
-                                    <input type="email" id="userEmail" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tactical-gold focus:border-tactical-gold" placeholder="tucorreo@dominio.com">
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Propósito de Adquisición</label>
-                                    <select required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-tactical-gold focus:border-tactical-gold">
-                                        <option value="">Seleccione un propósito...</option>
-                                        <option value="deportivo">Práctica Deportiva / Polígono</option>
-                                        <option value="coleccion">Coleccionismo</option>
-                                        <option value="proteccion">Disuasión (Propiedad Privada)</option>
-                                    </select>
-                                </div>
-                                <div class="mb-6 flex items-start">
-                                    <div class="flex items-center h-5">
-                                        <input type="checkbox" required class="w-4 h-4 text-tactical-gold border-gray-300 rounded focus:ring-tactical-gold">
-                                    </div>
-                                    <div class="ml-3 text-sm">
-                                        <label class="font-medium text-gray-700">Declaro no tener antecedentes penales</label>
-                                        <p class="text-gray-500 text-xs">Comprendo que la información será verificada bajo derecho de admisión.</p>
-                                    </div>
-                                </div>
-                                <button type="submit" class="w-full bg-tactical-900 text-white font-bold py-3 px-4 rounded-md hover:bg-tactical-800 transition duration-150 shadow">
-                                    Solicitar Revisión y Catálogo
-                                </button>
-                                <p id="formMessage" class="hidden mt-4 text-center text-sm font-bold text-green-700 bg-green-100 p-3 rounded border border-green-200">
-                                    ¡Solicitud recibida exitosamente! Hemos enviado los siguientes pasos y el catálogo a tu correo electrónico.
-                                </p>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Article Views -->
-    <div id="article-views" class="hidden flex-grow bg-gray-100 pb-16">
-        <div class="bg-tactical-900 shadow-md sticky top-[80px] z-30 border-t border-gray-700">
-            <div class="max-w-4xl mx-auto px-4 py-3">
-                <button onclick="showHome(event)" class="text-tactical-gold hover:text-white transition-colors flex items-center gap-2 font-semibold">
-                    <i class="fa-solid fa-arrow-left"></i> Volver a la página principal
-                </button>
-            </div>
-        </div>
-
-        <!-- Artículo 1 -->
-        <article id="article-1" class="hidden max-w-4xl mx-auto px-4 mt-8">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-                <div class="bg-blue-600 p-8 md:p-12 text-white relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 opacity-10">
-                        <i class="fa-solid fa-book-open text-9xl"></i>
-                    </div>
-                    <div class="flex items-center gap-3 mb-4 relative z-10">
-                        <i class="fa-solid fa-book-open text-2xl text-blue-200"></i>
-                        <span class="text-blue-100 font-semibold tracking-wider uppercase text-sm">Normatividad</span>
-                    </div>
-                    <h1 class="text-3xl md:text-5xl font-extrabold relative z-10 leading-tight">1. El Contexto: Ley 2197 de 2022</h1>
-                </div>
-                <div class="p-8 md:p-12 text-gray-700 space-y-6 text-lg leading-relaxed text-justify">
-                    <p class="text-xl text-gray-500 font-light mb-8">Un análisis sobre el origen de la regulación de dispositivos menos letales en Colombia.</p>
-                    <p>Para entender dónde estamos, debemos remitirnos a la <strong>Ley 2197 de 2022</strong>, conocida como la Ley de Seguridad Ciudadana.</p>
-                    <p>Esta norma surgió con el objeto de fortalecer la seguridad y, por primera vez, regular de forma integral las armas y dispositivos menos letales en el territorio colombiano.</p>
-                    <p>La intención original era clasificar, registrar y controlar estos dispositivos que, por su apariencia y función, estaban siendo utilizados en contextos complejos de seguridad urbana.</p>
-                </div>
-            </div>
-        </article>
-
-        <!-- Artículo 2 -->
-        <article id="article-2" class="hidden max-w-4xl mx-auto px-4 mt-8">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-                <div class="bg-red-700 p-8 md:p-12 text-white relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 opacity-10">
-                        <i class="fa-solid fa-gavel text-9xl"></i>
-                    </div>
-                    <div class="flex items-center gap-3 mb-4 relative z-10">
-                        <i class="fa-solid fa-gavel text-2xl text-red-200"></i>
-                        <span class="text-red-100 font-semibold tracking-wider uppercase text-sm">Jurisprudencia</span>
-                    </div>
-                    <h1 class="text-3xl md:text-5xl font-extrabold relative z-10 leading-tight">2. La Regulación y el Vacío de Permisos</h1>
-                </div>
-                <div class="p-8 md:p-12 text-gray-700 space-y-6 text-lg leading-relaxed text-justify">
-                    <p>Un punto clave que a menudo se ignora es que, tras la expedición de esta ley, la <strong>Corte Constitucional</strong>, mediante la <strong>Sentencia C-014 de 2023</strong>, declaró inexequibles algunos apartados fundamentales relacionados con la comercialización exclusiva a través de Indumil para particulares bajo ciertas modalidades.</p>
-                    <p><strong>¿Qué significa esto en la práctica?</strong> Según los análisis jurídicos recientes, actualmente existe un vacío operativo institucional que dificulta la expedición de nuevos registros regulares.</p>
-                    <p>Estamos, por tanto, en un escenario donde la tenencia y el porte carecen de un respaldo administrativo ágil para el ciudadano común, creando un limbo normativo que las autoridades deben interpretar caso por caso.</p>
-                </div>
-            </div>
-        </article>
-
-        <!-- Artículo 3 -->
-        <article id="article-3" class="hidden max-w-4xl mx-auto px-4 mt-8">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-                <div class="bg-yellow-500 p-8 md:p-12 text-tactical-900 relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 opacity-10">
-                        <i class="fa-solid fa-handcuffs text-9xl text-black"></i>
-                    </div>
-                    <div class="flex items-center gap-3 mb-4 relative z-10">
-                        <i class="fa-solid fa-handcuffs text-2xl text-tactical-800"></i>
-                        <span class="text-tactical-800 font-bold tracking-wider uppercase text-sm">Análisis Penal</span>
-                    </div>
-                    <h1 class="text-3xl md:text-5xl font-extrabold relative z-10 leading-tight">3. ¿Es un Delito Portarlas? El Debate Jurídico</h1>
-                </div>
-                <div class="p-8 md:p-12 text-gray-700 space-y-6 text-lg leading-relaxed text-justify">
-                    <p>Aquí es donde la conversación se vuelve técnica. ¿El porte de un arma traumática constituye automáticamente el delito de <em>'Fabricación, tráfico y porte de armas de fuego'</em> (Artículo 365 del Código Penal)?</p>
-                    <div class="space-y-6 mt-8">
-                        <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-sm">
-                            <h4 class="font-bold text-gray-900 text-xl mb-3 flex items-center gap-2"><i class="fa-solid fa-building-columns text-yellow-600"></i> Postura de la Fiscalía</h4>
-                            <p>Ha señalado que para que un arma se considere 'de fuego' bajo el tipo penal, debe funcionar mediante la combustión de pólvora para expulsar proyectiles con capacidad letal homologada.</p>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-sm">
-                            <h4 class="font-bold text-gray-900 text-xl mb-3 flex items-center gap-2"><i class="fa-solid fa-scale-unbalanced text-yellow-600"></i> Tribunal Superior de Bogotá</h4>
-                            <p>Ha declarado la atipicidad de la conducta en múltiples casos de porte, argumentando que no pueden equipararse jurídicamente a las armas de fuego de uso privativo o defensa personal.</p>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-sm">
-                            <h4 class="font-bold text-gray-900 text-xl mb-3 flex items-center gap-2"><i class="fa-solid fa-gavel text-yellow-600"></i> Tribunales de Medellín y Buga</h4>
-                            <p>Han emitido decisiones revocando medidas de aseguramiento y absolviendo a ciudadanos, siempre que el dispositivo mantenga su condición original de menor letalidad sin modificaciones lesivas.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Artículo 4 -->
-        <article id="article-4" class="hidden max-w-4xl mx-auto px-4 mt-8">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-                <div class="bg-emerald-600 p-8 md:p-12 text-white relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 opacity-10">
-                        <i class="fa-solid fa-shield-halved text-9xl"></i>
-                    </div>
-                    <div class="flex items-center gap-3 mb-4 relative z-10">
-                        <i class="fa-solid fa-shield-halved text-2xl text-emerald-200"></i>
-                        <span class="text-emerald-100 font-semibold tracking-wider uppercase text-sm">Conclusión Legal</span>
-                    </div>
-                    <h1 class="text-3xl md:text-5xl font-extrabold relative z-10 leading-tight">4. Munición Modificada y Conclusión</h1>
-                </div>
-                <div class="p-8 md:p-12 text-gray-700 space-y-6 text-lg leading-relaxed text-justify">
-                    <p><strong>El caso de la munición modificada:</strong> Las decisiones judiciales cambian radicalmente si el proyectil o cartucho ha sido alterado mecánicamente (por ejemplo, adaptando balines sólidos de plomo), lo cual desnaturaliza el dispositivo y puede activar la tipificación penal por modificación de armas.</p>
-                    
-                    <div class="bg-tactical-900 p-8 md:p-10 rounded-2xl text-white mt-10 shadow-2xl relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-tactical-gold opacity-10 rounded-bl-full"></div>
-                        <h4 class="font-extrabold text-tactical-gold text-2xl mb-6 flex items-center"><i class="fa-solid fa-scale-balanced mr-3 text-3xl"></i> ¿En qué quedamos?</h4>
-                        <p class="mb-6 text-lg">Existe una contradicción institucional evidente: la Ley 2197 busca restringirlas, la Corte limitó los conductos regulares, pero los Jueces Penales frecuentemente amparan la libertad de los ciudadanos ante la ausencia de tipicidad estricta.</p>
-                        <div class="bg-red-900/40 border-l-4 border-red-500 p-4 rounded-r">
-                            <p class="text-gray-200"><strong>Advertencia Importante:</strong> Portarlas libremente en espacios públicos sin criterio de prudencia expone al ciudadano a incautaciones administrativas inmediatas por parte de la Policía Nacional.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
-
-    <footer class="bg-tactical-900 border-t border-gray-800 text-gray-400 py-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            
-            <!-- Redes Sociales -->
-            <div class="flex justify-center space-x-8 mb-6">
-                <a href="#" class="hover:scale-110 transition-transform text-3xl" title="Instagram">
-                    <i class="fa-brands fa-instagram" style="background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; color: transparent;"></i>
-                </a>
-                <a href="#" class="text-[#1877F2] hover:scale-110 transition-transform text-3xl" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="text-white hover:scale-110 transition-transform text-3xl" style="text-shadow: 1.5px 1.5px 0 #00f2fe, -1.5px -1.5px 0 #fe0979;" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="#" class="text-[#25D366] hover:scale-110 transition-transform text-3xl" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-
-            <!-- Ubicación -->
-            <p class="mb-4 text-sm text-gray-300 font-semibold">
-                <i class="fa-solid fa-location-dot text-tactical-gold mr-2"></i>Calle 2 Oeste, Barrio Belisario Caicedo. Cali, Colombia.
-            </p>
-            
-            <p class="mb-4 text-sm">© 2026 defensacol. Todos los derechos reservados.</p>
-            
-            <p class="text-xs max-w-2xl mx-auto mb-4 text-gray-400">
-                La información contenida en este sitio web tiene fines puramente educativos e informativos y no constituye asesoría legal formal. Las leyes y jurisprudencias pueden cambiar.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Google Translate Container (Hidden) -->
-    <div id="google_translate_element" style="display: none;"></div>
-
-    <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Safe Scroll Helper
-        function scrollToSection(event, targetId) {
-            if (event) event.preventDefault();
-            
-            document.getElementById('article-views').classList.add('hidden');
-            document.getElementById('home-view').classList.remove('hidden');
-
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-            
-            document.getElementById('mobile-menu').classList.add('hidden');
-        }
-
-        // Single Page Application Navigation for Home
-        function showHome(event) {
-            if (event) event.preventDefault();
-            
-            document.getElementById('article-views').classList.add('hidden');
-            document.getElementById('home-view').classList.remove('hidden');
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            document.getElementById('mobile-menu').classList.add('hidden');
-        }
-
-        // Open Individual Article Page View
-        function openArticle(id) {
-            document.getElementById('home-view').classList.add('hidden');
-            
-            const articleViews = document.getElementById('article-views');
-            articleViews.classList.remove('hidden');
-            
-            document.querySelectorAll('#article-views article').forEach(art => {
-                art.classList.add('hidden');
-            });
-            
-            const activeArticle = document.getElementById(id);
-            if(activeArticle) {
-                activeArticle.classList.remove('hidden');
-            }
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Contact Form Submission Handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const btn = event.target.querySelector('button[type="submit"]');
-            const originalText = btn.innerText;
-            
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Procesando Verificación...';
-            
-            setTimeout(() => {
-                event.target.reset();
-                btn.disabled = false;
-                btn.innerText = originalText;
-                
-                const msg = document.getElementById('formMessage');
-                msg.classList.remove('hidden');
-                
-                setTimeout(() => {
-                    msg.classList.add('hidden');
-                }, 7000);
-                
-            }, 1500);
-        }
-
-        // Automated Language Translation Integration
-        function changeLanguage(langCode) {
-            const selectField = document.querySelector(".goog-te-combo");
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function triggerTranslate(langCode) {
+            var selectField = document.querySelector(".goog-te-combo");
             if (selectField) {
                 selectField.value = langCode;
                 selectField.dispatchEvent(new Event('change'));
-            } else {
-                console.warn("Google Translate widget initializing...");
             }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-yellow-500 selection:text-black">
+
+    <!-- Navegación Superior -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo con interacción para volver al inicio -->
+            <a href="#" onclick="showHome(event)" class="flex items-center gap-3 group focus:outline-none">
+                <img src="4936228277647510501_5.jpg" alt="DEFENSACOL Logo" class="h-12 w-auto object-contain rounded border border-slate-700 group-hover:border-yellow-500 transition-all shadow-md">
+            </a>
+
+            <!-- Menú de Navegación -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#inicio" onclick="showHome(event)" class="hover:text-yellow-400 transition-colors">Inicio</a>
+                <a href="#comunidad" onclick="showHome(event)" class="hover:text-yellow-400 transition-colors">Comunidad Jurídica</a>
+                <a href="#adquisicion" onclick="showHome(event)" class="hover:text-yellow-400 transition-colors">Derecho de Admisión y Venta</a>
+            </nav>
+
+            <!-- Traductores y Acceso Rápido -->
+            <div class="flex items-center gap-4">
+                <!-- Botones de Banderas de Traducción -->
+                <div class="flex items-center gap-2 bg-slate-800/80 px-2.5 py-1.5 rounded-full border border-slate-700 shadow-inner">
+                    <button onclick="triggerTranslate('es')" title="Español" class="hover:scale-110 transition-transform focus:outline-none">
+                        <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 object-cover rounded shadow-sm">
+                    </button>
+                    <span class="text-slate-600 text-xs">|</span>
+                    <button onclick="triggerTranslate('en')" title="English" class="hover:scale-110 transition-transform focus:outline-none">
+                        <img src="https://flagcdn.com/w40/us.png" alt="English" class="w-6 h-4 object-cover rounded shadow-sm">
+                    </button>
+                    <span class="text-slate-600 text-xs">|</span>
+                    <button onclick="triggerTranslate('fr')" title="Français" class="hover:scale-110 transition-transform focus:outline-none">
+                        <img src="https://flagcdn.com/w40/fr.png" alt="Français" class="w-6 h-4 object-cover rounded shadow-sm">
+                    </button>
+                </div>
+
+                <a href="#adquisicion" onclick="showHome(event)" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-yellow-500 to-amber-600 text-slate-950 rounded-lg hover:from-yellow-400 hover:to-amber-500 transition-all shadow-lg shadow-yellow-500/10">
+                    Solicitud de Acceso
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal (SPA: Vista Inicio vs Vista Artículo) -->
+    <main id="main-container">
+        <!-- VISTA INICIO -->
+        <div id="home-view">
+            <!-- Hero Section con la imagen corporativa de fondo e interacción -->
+            <section id="inicio" class="relative py-24 lg:py-32 overflow-hidden border-b border-slate-800 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.90), rgba(2, 6, 23, 0.95)), url('4936228277647510501_5.jpg');">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <span class="inline-block py-1 px-3 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs font-semibold uppercase tracking-widest mb-6">
+                        Seguridad Jurídica y Táctica en Colombia
+                    </span>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 uppercase">
+                        DEFENSA<span class="text-yellow-400">COL</span>
+                    </h1>
+                    <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed">
+                        Plataforma especializada en consultoría jurídica, análisis normativo de dispositivos menos letales y cumplimiento corporativo bajo rigurosos estándares de estricto derecho de admisión.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="#comunidad" class="inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-slate-950 bg-yellow-400 rounded-xl hover:bg-yellow-300 transition-all shadow-xl shadow-yellow-400/20">
+                            Explorar Comunidad Jurídica
+                        </a>
+                        <a href="#adquisicion" class="inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-white bg-slate-800 border border-slate-700 rounded-xl hover:bg-slate-700 transition-all">
+                            Proceso de Adquisición
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Comunidad Jurídica (Artículos Independientes) -->
+            <section id="comunidad" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">Comunidad Jurídica</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">Análisis técnicos especializados sobre la situación legal, vacíos normativos y jurisprudencia de las armas traumáticas en Colombia.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Artículo 1 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-yellow-500/50 transition-all group">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-yellow-500 font-semibold mb-4">
+                                <span>Ley 2197 de 2022</span>
+                                <span>Normativa</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">El Panorama Legal y la Ley de Seguridad Ciudadana</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">Análisis detallado de la Ley 2197 y el impacto de la Sentencia C-014 de 2023 sobre el porte y tenencia de dispositivos de menor letalidad.</p>
+                        </div>
+                        <button onclick="openArticle('articulo1')" class="inline-flex items-center gap-2 text-sm font-bold text-yellow-400 hover:text-yellow-300 transition-colors">
+                            Leer análisis completo <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Artículo 2 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-yellow-500/50 transition-all group">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-yellow-500 font-semibold mb-4">
+                                <span>Código Penal - Art. 365</span>
+                                <span>Jurisprudencia</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">¿Es delito portarlas? Criterios de la Fiscalía y Tribunales</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">Examen de los pronunciamientos de los Tribunales Superiores de Bogotá, Medellín y Buga respecto a la tipicidad del porte.</p>
+                        </div>
+                        <button onclick="openArticle('articulo2')" class="inline-flex items-center gap-2 text-sm font-bold text-yellow-400 hover:text-yellow-300 transition-colors">
+                            Leer análisis completo <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Artículo 3 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-yellow-500/50 transition-all group">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-yellow-500 font-semibold mb-4">
+                                <span>Balística y Munición</span>
+                                <span>Casuística</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">El Matiz de la Munición Modificada y Principio de Legalidad</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">Revisión de sentencias clave ante modificaciones de proyectiles y los límites del principio de legalidad en materia penal.</p>
+                        </div>
+                        <button onclick="openArticle('articulo3')" class="inline-flex items-center gap-2 text-sm font-bold text-yellow-400 hover:text-yellow-300 transition-colors">
+                            Leer análisis completo <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Derecho de Admisión y Venta (Formulario de Registro) -->
+            <section id="adquisicion" class="py-20 bg-slate-900/50 border-t border-slate-800">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl">
+                        <div class="text-center mb-10">
+                            <span class="text-yellow-400 text-xs font-bold uppercase tracking-widest bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/20">Control y Compliance</span>
+                            <h2 class="text-3xl font-bold text-white mt-4 mb-2">Solicitud de Adquisición</h2>
+                            <p class="text-slate-400 text-sm">Dispositivos de disuasión únicamente con documentación legal (Manifiesto de aduana y factura).</p>
+                        </div>
+
+                        <!-- Formulario conectado a coldefensa@gmail.com -->
+                        <form action="mailto:coldefensa@gmail.com" method="POST" enctype="text/plain" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Nombre Completo</label>
+                                    <input type="text" name="nombre" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-yellow-500 transition-colors" placeholder="Su nombre y apellido">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Cédula de Ciudadanía / ID</label>
+                                    <input type="text" name="cedula" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-yellow-500 transition-colors" placeholder="Número de identificación">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Correo Electrónico</label>
+                                    <input type="email" name="correo" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-yellow-500 transition-colors" placeholder="ejemplo@correo.com">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Teléfono de Contacto</label>
+                                    <input type="tel" name="telefono" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-yellow-500 transition-colors" placeholder="+57 300 000 0000">
+                                </div>
+                            </div>
+
+                            <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Dispositivo de Interés / Observaciones</label>
+                                    <textarea name="detalles" rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-yellow-500 transition-colors" placeholder="Escriba el modelo requerido y justifique el propósito de disuasión..."></textarea>
+                            </div>
+
+                            <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 text-xs text-slate-400 leading-relaxed">
+                                <i class="fa-solid fa-shield-halved text-yellow-400 mr-2"></i> Su solicitud será sometida a revisión estricta bajo derecho de admisión. Al enviar este formulario, los datos y siguientes pasos de verificación serán direccionados a nuestro canal oficial en <strong>coldefensa@gmail.com</strong>.
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-yellow-500 to-amber-600 text-slate-950 font-bold uppercase tracking-wider rounded-xl hover:from-yellow-400 hover:to-amber-500 transition-all shadow-xl shadow-yellow-500/10">
+                                Enviar Solicitud de Revisión
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- VISTA DE ARTÍCULOS INDEPENDIENTES (Oculta por defecto) -->
+        <div id="article-view" class="hidden py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button onclick="showHome(event)" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-yellow-400 bg-yellow-500/10 px-4 py-2 rounded-lg border border-yellow-500/20 hover:bg-yellow-500/20 transition-all mb-8">
+                <i class="fa-solid fa-arrow-left"><span>Volver al inicio</span></i>
+            </button>
+            <div id="article-content-container" class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl space-y-6">
+                <!-- Contenido inyectado dinámicamente -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+            <!-- Logo e Información -->
+            <div class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+                    <img src="4936228277647510501_5.jpg" alt="DEFENSACOL Logo" class="h-8 w-auto object-contain rounded">
+                    <span class="text-white font-bold tracking-wider">DEFENSACOL</span>
+                </div>
+                <p class="text-xs text-slate-500">Calle 2 Oeste Barrio: Belisario Caicedo. Cali, Colombia.</p>
+                <p class="text-xs text-slate-500 mt-1">Contacto oficial: coldefensa@gmail.com</p>
+            </div>
+
+            <!-- Redes Sociales con colores corporativos reales -->
+            <div class="flex items-center gap-4">
+                <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-all hover:scale-110" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);" title="Instagram">
+                    <i class="fa-brands fa-instagram text-white text-lg"></i>
+                </a>
+                <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-blue-500 hover:bg-blue-600 hover:text-white transition-all hover:scale-110" title="Facebook">
+                    <i class="fa-brands fa-facebook-f text-lg"></i>
+                </a>
+                <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:bg-black hover:text-white transition-all hover:scale-110 border border-slate-700" title="TikTok">
+                    <i class="fa-brands fa-tiktok text-lg"></i>
+                </a>
+                <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-green-500 hover:bg-green-600 hover:text-white transition-all hover:scale-110" title="WhatsApp">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+
+            <!-- Créditos / Prompt Engineering Notice -->
+            <div class="text-center md:text-right text-xs text-slate-600">
+                <p>&copy; 2026 Defensacol. Todos los derechos reservados.</p>
+                <p class="mt-1">Arquitectura basada en Prompt Engineering & Compliance Legal.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript para SPA y Navegación de Artículos -->
+    <script>
+        const articlesData = {
+            articulo1: {
+                category: "Ley 2197 de 2022",
+                badge: "Normativa Vigente",
+                title: "El Panorama Legal y la Ley de Seguridad Ciudadana",
+                content: `
+                    <h3 class="text-2xl font-bold text-white mb-4">El Contexto de las Armas Traumáticas en Colombia</h3>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        Para entender la situación actual, debemos remitirnos a la <strong>Ley 2197 de 2022</strong>, conocida como la Ley de Seguridad Ciudadana. Esta norma surgió con el objeto de fortalecer la seguridad y, por primera vez, regular de forma integral las armas y dispositivos menos letales.
+                    </p>
+                    <h4 class="text-lg font-bold text-yellow-400 mt-6 mb-2">La Regulación y el Vacío de Permisos</h4>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        Un punto clave que a menudo se ignora es que, tras la expedición de esta ley, la <strong>Corte Constitucional</strong>, mediante la <strong>Sentencia C-014 de 2023</strong>, declaró inconstitucionales varios apartados que permitían a los civiles adquirir y portar estas armas bajo reglamentación de Indumil.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        Según los boletines jurídicos especializados, actualmente no existe un marco que permita la expedición de nuevos permisos para el porte de armas traumáticas por parte de civiles, ya que las normas que lo facilitaban fueron expulsadas del ordenamiento jurídico. Estamos, por tanto, en un escenario donde la tenencia y el porte carecen de un respaldo administrativo centralizado para el ciudadano común, exigiendo rigor documental estricto (manifiesto de aduana y factura).
+                    </p>
+                `
+            },
+            articulo2: {
+                category: "Código Penal - Art. 365",
+                badge: "Jurisprudencia",
+                title: "¿Es delito portarlas? Criterios de la Fiscalía y Tribunales",
+                content: `
+                    <h3 class="text-2xl font-bold text-white mb-4">El Debate Jurídico sobre el Tipo Penal</h3>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        ¿El porte de un arma traumática constituye el delito de 'Fabricación, tráfico y porte de armas de fuego' (Artículo 365 del Código Penal)? Este es el núcleo de la controversia actual en los estrados judiciales colombianos.
+                    </p>
+                    <ul class="space-y-4 text-slate-300 my-6">
+                        <li class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                            <strong class="text-yellow-400 block mb-1">La postura de la Fiscalía:</strong> En sus conceptos recientes, la Dirección de Asuntos Jurídicos de la Fiscalía General de la Nación ha señalado que para que un arma se considere 'de fuego' bajo el tipo penal, debe funcionar mediante la combustión de gases. Si el arma traumática no ha sido modificada, técnicamente no se adecúa al tipo penal de arma de fuego.
+                        </li>
+                        <li class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                            <strong class="text-yellow-400 block mb-1">Jurisprudencia de los Tribunales:</strong> Diversos tribunales han reforzado esta visión. El Tribunal Superior de Bogotá, Medellín y Buga han emitido decisiones declarando la atipicidad o revocando capturas, subrayando que no existe una norma penal que sancione específicamente el porte de armas traumáticas como si fueran de fuego letal.
+                        </li>
+                    </ul>
+                `
+            },
+            articulo3: {
+                category: "Balística y Munición",
+                badge: "Casuística",
+                title: "El Matiz de la Munición Modificada y Principio de Legalidad",
+                content: `
+                    <h3 class="text-2xl font-bold text-white mb-4">Análisis de Municiones y Límites Legales</h3>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        Un matiz importante que surge en las sentencias es el tratamiento de la munición modificada. En precedentes recientes, se han analizado casos de porte con modificaciones particulares en los proyectiles.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        Los tribunales han determinado que, si bien el uso indebido puede representar un riesgo social, el principio universal de legalidad impide condenar a un ciudadano por un delito (porte de armas de fuego) que no describe exactamente la conducta de portar un dispositivo clasificado originalmente como menos letal.
+                    </p>
+                    <div class="p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-xl text-yellow-300 text-sm mt-6">
+                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> <strong>Conclusión Jurídica:</strong> El sistema judicial envía un mensaje claro: el porte estándar de un dispositivo menos letal no encaja mecánicamente en el Art. 365 del Código Penal, aunque requiere estricta observancia documental y administrativa.
+                    </div>
+                `
+            }
+        };
+
+        function openArticle(articleKey) {
+            const data = articlesData[articleKey];
+            if (!data) return;
+
+            const container = document.getElementById('article-content-container');
+            container.innerHTML = `
+                <div class="flex items-center justify-between text-xs text-yellow-500 font-semibold mb-2">
+                    <span>${data.category}</span>
+                    <span class="bg-yellow-500/10 px-2.5 py-1 rounded-full border border-yellow-500/20">${data.badge}</span>
+                </div>
+                <h1 class="text-3xl font-extrabold text-white mb-6">${data.title}</h1>
+                <div class="border-t border-slate-800 pt-6">
+                    ${data.content}
+                </div>
+            `;
+
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('article-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showHome(event) {
+            if (event) event.preventDefault();
+            document.getElementById('article-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleFormSubmit(event) {
+            // El formulario abre el cliente de correo hacia coldefensa@gmail.com nativamente, 
+            // mostramos una notificación amigable de éxito.
+            setTimeout(() => {
+                alert("¡Solicitud generada con éxito! Sus datos y requerimientos están siendo redirigidos a coldefensa@gmail.com.");
+            }, 500);
         }
     </script>
 </body>
